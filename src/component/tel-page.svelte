@@ -1,20 +1,25 @@
 <script lang="ts">
-  export let name: string
-  export let title: string
+  export let tel: string
 </script>
 
 <div>
-  <div class="title-text">{name}</div>
-  <div class="title-text">{title}</div>
+  <div class="tel-text">{tel}</div>
 </div>
 
 <style lang="scss">
-  .title-text {
+  .tel-text {
     width: 100%;
-    color: #ff3e00;
+    color: #636b78;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
     font-family: 'Zenkurenaido'
+  }
+
+
+  @media (max-width: 640px) {
+    .tel-text {
+      font-size: 3em;
+    }
   }
 </style>

@@ -1,42 +1,46 @@
 <script lang="ts">
-  import TitleWrapper from './component/title-wrapper.svelte'
+  import { Router, Route, navigate } from 'svelte-routing'
+  import Home from './pages/index.svelte'
+  import Email from './pages/email.svelte'
+  import Tel from './pages/tel.svelte'
+  import About from './pages/about.svelte'
+  import Bank from './pages/bank.svelte'
+  import Line from './pages/line.svelte'
+  import NotFound from './pages/not-found.svelte'
 
-  export let name: string
-  export let title: string
   let clickCnt: number = 0
+  let pageCount: number = 0
+  const routes: string[] = ['/', '/about', '/email', '/tel']
 
   function clickWindow () {
     clickCnt += 1
+    if (clickCnt > 2) {
+      if (pageCount === routes.length - 1) {
+        pageCount = 0
+      } else {
+        pageCount += 1
+      }
+      clickCnt = 0
+      navigate(routes[pageCount], { replace: true })
+    }
   }
 </script>
 
-<main>
-  <div class="main-wrapper" on:click={clickWindow}>
-    <TitleWrapper {name} {title} />
-    {#if clickCnt > 5}
-      <span> 5回押した！ </span>
-    {:else}
-      <span> もっと押せ~ </span>
-    {/if}
-  </div>
-</main>
+<Router>
+  <main class="main" on:click={clickWindow}>
+    <Route path="/"><Home /></Route>
+    <Route path="/email"><Email /></Route>
+    <Route path="/tel"><Tel /></Route>
+    <Route path="/about"><About /></Route>
+    <Route path="/bank"><Bank /></Route>
+    <Route path="/line"><Line /></Route>
+    <Route component={NotFound} />
+  </main>
+</Router>
 
 <style lang="scss">
-  main {
-    height: 100%;
-  }
-
-  .main-wrapper {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    height: 100%;
-  }
-
   @media (min-width: 640px) {
-    main {
+    .main {
       max-width: none;
     }
   }
