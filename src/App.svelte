@@ -1,11 +1,12 @@
 <script lang="ts">
   import { Router, Route, navigate } from 'svelte-routing'
   import Home from './pages/index.svelte'
+  import About from './pages/about.svelte'
   import Email from './pages/email.svelte'
   import Tel from './pages/tel.svelte'
-  import About from './pages/about.svelte'
   import Bank from './pages/bank.svelte'
   import Line from './pages/line.svelte'
+  import Help from './pages/help.svelte'
   import NotFound from './pages/not-found.svelte'
 
   let clickCnt: number = 0
@@ -24,16 +25,29 @@
       navigate(routes[pageCount], { replace: true })
     }
   }
+
+  function handleKeydown (event) {
+    if (event.key === 'b') {
+      navigate('/bank', { replace: true })
+    } else if (event.key === 'l') {
+      navigate('/line', { replace: true })
+    } else if (event.key === 'h') {
+      navigate('/help', { replace: true })
+    }
+  }
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <Router>
   <main class="main" on:click={clickWindow}>
     <Route path="/"><Home /></Route>
+    <Route path="/about"><About /></Route>
     <Route path="/email"><Email /></Route>
     <Route path="/tel"><Tel /></Route>
-    <Route path="/about"><About /></Route>
     <Route path="/bank"><Bank /></Route>
     <Route path="/line"><Line /></Route>
+    <Route path="/help"><Help /></Route>
     <Route component={NotFound} />
   </main>
 </Router>
