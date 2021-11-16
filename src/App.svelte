@@ -1,14 +1,27 @@
 <script lang="ts">
-  import Button from './component/button/index.svelte'
-  import DisbledButton from './component/disabled-button/index.svelte'
+  import Button from './component/button.svelte'
+  import DisbledButton from './component/disabled-button.svelte'
 
   export let name: string
+  let childCnt: number = 0
+
+  function updateChild (event) {
+    childCnt = event.detail.cnt
+  }
 </script>
 
 <main>
   <h1>{name}</h1>
-  <Button text="hello" />
+  <Button text="hello" {childCnt} on:updateChild={updateChild} />
   <DisbledButton />
+  {#if childCnt > 10}
+	<span>
+		10回押した！
+	</span>
+  {:else}
+    <span>もっと押せ~
+		</span>
+  {/if}
 </main>
 
 <style>
