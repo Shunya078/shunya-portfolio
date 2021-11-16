@@ -1,42 +1,38 @@
 <script lang="ts">
-  import Button from './component/button.svelte'
-  import DisbledButton from './component/disabled-button.svelte'
+  import TitleWrapper from './component/title-wrapper.svelte'
 
   export let name: string
-  let childCnt: number = 0
+  export let title: string
+  let clickCnt: number = 0
 
-  function updateChild (event) {
-    childCnt = event.detail.cnt
+  function clickWindow () {
+    clickCnt += 1
   }
 </script>
 
 <main>
-  <h1>{name}</h1>
-  <Button text="hello" {childCnt} on:updateChild={updateChild} />
-  <DisbledButton />
-  {#if childCnt > 10}
-	<span>
-		10回押した！
-	</span>
-  {:else}
-    <span>もっと押せ~
-		</span>
-  {/if}
+  <div class="main-wrapper" on:click={clickWindow}>
+    <TitleWrapper {name} {title} />
+    {#if clickCnt > 5}
+      <span> 5回押した！ </span>
+    {:else}
+      <span> もっと押せ~ </span>
+    {/if}
+  </div>
 </main>
 
-<style>
+<style lang="scss">
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    height: 100%;
   }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
+  .main-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
   }
 
   @media (min-width: 640px) {
