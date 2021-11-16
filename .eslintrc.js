@@ -22,10 +22,13 @@ module.exports = {
     }
   ],
   rules: {
+    indent: ['error', 2],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off'
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'no-multiple-empty-lines': 'off',
+    'no-use-before-define': 'off'
     // for svelte
     // '@typescript-eslint/consistent-type-imports': [
     //   'error',
