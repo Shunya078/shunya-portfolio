@@ -22,6 +22,7 @@ module.exports = {
     }
   ],
   rules: {
+    indent: ['error', 2],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
