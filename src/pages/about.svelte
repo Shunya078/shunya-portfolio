@@ -10,7 +10,7 @@
     { key: '氏名', value: '大坪 隼也' },
     { key: 'Works', value: 'web dev.' },
     { key: 'School', value: 'Nagoya Univ.' },
-    { key: 'Twitter', value: '@_Shun8931' },
+    { key: 'Twitter', value: '@_Shunya078' },
     { key: 'GitHub', value: 'Shunya078' }
   ]
 </script>

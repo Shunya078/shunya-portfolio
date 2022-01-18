@@ -14,7 +14,7 @@
         <th class="title-text">{info.key}</th>
         <span class="title-text">:</span>
         {#if info.key === 'Twitter'}
-          <a class="title-text" href="https://twitter.com/_Shun8931"
+          <a class="title-text" href="https://twitter.com/_Shunya078"
             >{info.value}</a
           >
         {:else if info.key === 'GitHub'}
