@@ -3,7 +3,6 @@
   import Home from './pages/index.svelte'
   import About from './pages/about.svelte'
   import Email from './pages/email.svelte'
-  import Tel from './pages/tel.svelte'
   import Bank from './pages/bank.svelte'
   import Line from './pages/line.svelte'
   import Help from './pages/help.svelte'
@@ -11,7 +10,7 @@
 
   let clickCnt: number = 0
   let pageCount: number = 0
-  const routes: string[] = ['/', '/about', '/email', '/tel']
+  const routes: string[] = ['/', '/about', '/email', '/line']
 
   function clickWindow () {
     clickCnt += 1
@@ -44,7 +43,6 @@
     <Route path="/"><Home /></Route>
     <Route path="/about"><About /></Route>
     <Route path="/email"><Email /></Route>
-    <Route path="/tel"><Tel /></Route>
     <Route path="/bank"><Bank /></Route>
     <Route path="/line"><Line /></Route>
     <Route path="/help"><Help /></Route>

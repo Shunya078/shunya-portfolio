@@ -14,10 +14,6 @@
       value: 'Email'
     },
     {
-      key: '/tel',
-      value: 'Telephone'
-    },
-    {
       key: '/bank',
       value: '銀行口座'
     },

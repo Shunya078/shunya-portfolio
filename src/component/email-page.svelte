@@ -1,13 +1,9 @@
 <script lang="ts">
   export let gmail: string
-  export let companyEmail: string
-  export let schoolEmail: string
 </script>
 
 <div>
   <div class="email-text">{gmail}</div>
-  <div class="email-text">{companyEmail}</div>
-  <div class="email-text">{schoolEmail}</div>
 </div>
 
 <style lang="scss">

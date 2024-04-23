@@ -25,8 +25,6 @@
     }
   ]
 
-  const url = 'images/paypay.jpeg'
-  const src = url
 </script>
 
 <main>
@@ -39,11 +37,6 @@
     {#each mitsubishiInfo as mitsubishi}
       <div class="detail-text">{mitsubishi.key}: {mitsubishi.value}</div>
     {/each}
-    <div class="title-text">PayPay</div>
-
-    <div>
-      <img {src} alt=""  class="img-wrapper" />
-    </div>
   </div>
 </main>
 
@@ -74,7 +67,4 @@
     font-family: 'Zenkurenaido';
   }
 
-  .img-wrapper {
-    width: 200px;
-  }
 </style>
